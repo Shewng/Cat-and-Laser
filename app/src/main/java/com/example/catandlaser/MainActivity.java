@@ -1,7 +1,6 @@
 package com.example.catandlaser;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.graphics.Rect;
 import android.hardware.Sensor;
@@ -22,22 +21,25 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     // Variables
-    // Helper variables
+    // Values/helper variables
     private DisplayMetrics displayMetrics = new DisplayMetrics();
     int width = displayMetrics.widthPixels;
     double height = displayMetrics.heightPixels;
     private int[] location = new int[2];
+    
     private Random rand = new Random();
+    private Boolean lock1 = false, lock2 = false, lock3 = false;
 
     // Sensor variables
     private SensorManager sensorManager;
     private Sensor light;
 
+    // Assets on screen
     private TextView laser;
     private ImageView catPawR, catPawL, catHead;
     private ImageView print1, print2, print3;
-    private Boolean lock1 = false, lock2 = false, lock3 = false;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         } else {
             finish();
         }
-
         // Hide top and bottom phone bars
         hideStatusBar();
     }
@@ -114,19 +115,19 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
-    protected void onStop() {
-        super.onStop();
-        sensorManager.unregisterListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY));
-    }
-
     /**
      * Hides the system and navigation bars of the phone to allow for fullscreen
      */
     private void hideStatusBar() {
         View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                      | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                      | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        int uiOptions = 0;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                uiOptions = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                              | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                              | View.SYSTEM_UI_FLAG_FULLSCREEN;
+            }
+        }
         decorView.setSystemUiVisibility(uiOptions);
     }
 
@@ -152,14 +153,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     /**
      * Handle the sensor data
-     * @param lux The light value that the sensor is detecting
+     * @param lux The light value that the sensor is currently detecting
      */
     public void handleSensorData(float lux) {
 
         // Check if lux is low enough (i.e. covering it with your finger)
         //if (lux > 0 && lux < 10) {
         if (lux == 0.0) {
-            //sensorManager.unregisterListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY));
             laser.animate().cancel();
 
             laser.setVisibility(View.INVISIBLE);     // Hide the laser
@@ -176,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
      */
     public void moveRandomly() {
 
+        // Grab screen metrics
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         width = displayMetrics.widthPixels;
         height = displayMetrics.heightPixels * 0.75;        // Use only 2/3 of th screen
