@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Cat and Laser</string>
+
+    <string name="unlock_message">Catch the laser to unlock</string>
+    <string name="paw_lock_1">First spot of 3 to hit</string>
+    <string name="paw_lock_2">Second of 3 spot to hit</string>
+    <string name="paw_lock_3">Third spot of 3 to hit</string>
+
+    <string name="desc_cat_paw_right">The right paw of the cat</string>
+    <string name="desc_cat_paw_left">The left paw of the cat</string>
+    <string name="desc_cat_paw_print_right">The right paw print of the cat</string>
+    <string name="desc_cat_paw_print_left">The left paw print of the cat</string>
+    <string name="desc_cat">The cat itself</string>
+</resources>

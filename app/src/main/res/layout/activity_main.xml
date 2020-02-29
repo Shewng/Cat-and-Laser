@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/pawPrint3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="275dp"
+        android:layout_marginRight="275dp"
+        android:layout_marginBottom="50dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/paw_print_pink_left"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/pawPrint2"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginLeft="225dp"
+        android:layout_marginBottom="100dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/paw_print_pink_right"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/pawPrint1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="175dp"
+        android:layout_marginRight="175dp"
+        android:layout_marginBottom="650dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/paw_print_pink_left"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/laserDot"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="315dp"
+        android:layout_marginRight="156dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="316dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/catPawRight"
+        android:layout_width="275dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="750dp"
+        android:contentDescription="@string/desc_cat_paw_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/catHead"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cat_paw_right" />
+
+    <ImageView
+        android:id="@+id/catPawLeft"
+        android:layout_width="275dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="750dp"
+        android:contentDescription="@string/desc_cat_paw_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/catHead"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cat_paw_left" />
+
+    <ImageView
+        android:id="@+id/catHead"
+        android:layout_width="444dp"
+        android:layout_height="258dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginRight="156dp"
+        android:contentDescription="@string/desc_cat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cat_head" />
+
+    <TextView
+        android:id="@+id/unlockMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginRight="156dp"
+        android:layout_marginBottom="690dp"
+        android:gravity="center"
+        android:text="@string/unlock_message"
+        android:textColor="@color/gray"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
