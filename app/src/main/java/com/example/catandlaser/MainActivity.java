@@ -355,7 +355,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
      */
     public void checkForOverlap() {
 
-        // Values for checking overlap
+        // Values for checking overlap between laser and paw print
         int xLaser = getLocationOfX(laser);
         int yLaser = getLocationOfY(laser);
 
@@ -368,12 +368,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         int xC3 = getLocationOfX(print3);
         int yC3 = getLocationOfY(print3);
 
+        // Generating hitboxes for the laser and paw prints
         Rect laserRect = new Rect(xLaser, yLaser, xLaser + laser.getMeasuredWidth(), yLaser + laser.getMeasuredHeight());
 
         Rect lockRect1 = new Rect(xC1, yC1, xC1 + print1.getMeasuredWidth(), yC1 + print1.getMeasuredHeight());
         Rect lockRect2 = new Rect(xC2, yC2, xC2 + print2.getMeasuredWidth(), yC2 + print2.getMeasuredHeight());
         Rect lockRect3 = new Rect(xC3, yC3, xC3 + print3.getMeasuredWidth(), yC3 + print3.getMeasuredHeight());
 
+        // Check for overlap
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             if ((Rect.intersects(laserRect,lockRect1)) && !lock1) {
                 print1.animate().alpha(1).setDuration(10);
