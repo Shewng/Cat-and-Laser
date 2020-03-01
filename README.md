@@ -16,6 +16,7 @@ Group members:
   - Alternatively, configure the AVD Manager to set up an emulator
 - Ensure that you enable both **Developer Mode** and **USB Debugging** on your device
   - Both found in the *Settings* app of Android devices
+  - See https://developer.android.com/training/basics/firstapp/running-app for more details.
   
 #### Once above is completed:
 1) Run > Run 'app'
